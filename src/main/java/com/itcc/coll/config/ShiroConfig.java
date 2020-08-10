@@ -139,7 +139,7 @@ public class ShiroConfig {
         CustomSessionManager customSessionManager = new CustomSessionManager();
 
         //超时时间，默认 30分钟，会话超时；方法里面的单位是毫秒
-        //customSessionManager.setGlobalSessionTimeout(20000);
+        customSessionManager.setGlobalSessionTimeout(1800000);
 
         //配置session持久化
         customSessionManager.setSessionDAO(redisSessionDAO());
