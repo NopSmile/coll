@@ -12,6 +12,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class CustomRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        System.out.println("授权 doGetAuthorizationInfo");
+        System.out.println("访问授权 doGetAuthorizationInfo");
 
         User newUser = (User)principals.getPrimaryPrincipal();
         User user = userService.findAllUserInfoByUsername(newUser.getUsername());
@@ -63,14 +64,6 @@ public class CustomRealm extends AuthorizingRealm {
         return simpleAuthorizationInfo;
     }
 
-
-
-
-
-
-
-
-
     /**
      * 用户登录的时候会调用
      * @param token
@@ -80,7 +73,7 @@ public class CustomRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        System.out.println("认证 doGetAuthenticationInfo");
+        System.out.println("登陆认证 doGetAuthenticationInfo");
 
         //从token获取用户信息，token代表用户输入
         String username = (String)token.getPrincipal();
@@ -93,6 +86,6 @@ public class CustomRealm extends AuthorizingRealm {
             return null;
         }
 
-        return new SimpleAuthenticationInfo(user, user.getUserpassword(), this.getClass().getName());
+        return new SimpleAuthenticationInfo(user, user.getUserpassword(), ByteSource.Util.bytes(user.getSalt()), this.getClass().getName());
     }
 }

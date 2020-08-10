@@ -19,7 +19,7 @@ public interface RoleMapper {
                     @Result(property = "name",column = "name"),
                     @Result(property = "description",column = "description"),
                     @Result(property = "permissionList",column = "id",
-                            many = @Many(select = "com.itcc.shiro.mapper.PermissionMapper.findPermissionListByRoleId", fetchType = FetchType.DEFAULT)
+                            many = @Many(select = "com.itcc.coll.mapper.PermissionMapper.findPermissionListByRoleId", fetchType = FetchType.DEFAULT)
                     )
             }
     )

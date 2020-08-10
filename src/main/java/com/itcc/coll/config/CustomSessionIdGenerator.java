@@ -14,7 +14,7 @@ public class CustomSessionIdGenerator implements SessionIdGenerator {
     @Override
     public Serializable generateId(Session session) {
 
-        return "jiachuan"+UUID.randomUUID().toString().replace("-","");
+        return System.currentTimeMillis()+"-"+UUID.randomUUID().toString();
 
     }
 
