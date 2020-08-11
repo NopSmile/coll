@@ -21,8 +21,6 @@ import java.util.Map;
 
 @Configuration
 public class ShiroConfig {
-
-
     @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
 
@@ -80,7 +78,6 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-
     @Bean
     public SecurityManager securityManager(){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -99,7 +96,6 @@ public class ShiroConfig {
         return securityManager;
     }
 
-
     /**
      * 自定义realm
      * @return
@@ -111,7 +107,6 @@ public class ShiroConfig {
         customRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return customRealm;
     }
-
 
     /**
      * 密码加解密规则
@@ -130,8 +125,6 @@ public class ShiroConfig {
         return credentialsMatcher;
     }
 
-
-
     //自定义sessionManager
     @Bean
     public SessionManager sessionManager(){
@@ -147,11 +140,6 @@ public class ShiroConfig {
         return customSessionManager;
     }
 
-
-
-
-
-
     /**
      * 配置redisManager
      *
@@ -162,7 +150,6 @@ public class ShiroConfig {
         redisManager.setPort(6379);
         return redisManager;
     }
-
 
     /**
      * 配置具体cache实现类
@@ -178,7 +165,6 @@ public class ShiroConfig {
         return redisCacheManager;
     }
 
-
     /**
      * 自定义session持久化
      * @return
@@ -193,7 +179,6 @@ public class ShiroConfig {
         return redisSessionDAO;
     }
 
-
     /**
      * 管理shiro一些bean的生命周期 即bean初始化 与销毁
      * @return
@@ -202,7 +187,6 @@ public class ShiroConfig {
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
-
 
     /**
      *  api controller 层面
@@ -217,7 +201,6 @@ public class ShiroConfig {
         return authorizationAttributeSourceAdvisor;
     }
 
-
     /**
      *  用来扫描上下文寻找所有的Advistor(通知器),
      *  将符合条件的Advisor应用到切入点的Bean中，需要在LifecycleBeanPostProcessor创建后才可以创建
@@ -230,7 +213,4 @@ public class ShiroConfig {
         defaultAdvisorAutoProxyCreator.setUsePrefix(true);
         return defaultAdvisorAutoProxyCreator;
     }
-
-
-
 }
