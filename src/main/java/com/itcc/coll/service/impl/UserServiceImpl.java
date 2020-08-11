@@ -27,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
         User user = userMapper.findByUsername(username);
 
+        if(null ==user ){
+            return user;
+        }
         //用户的角色集合
         List<Role> roleList =  roleMapper.findRoleListByUserId(user.getId());
 

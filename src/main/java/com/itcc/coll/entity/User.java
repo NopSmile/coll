@@ -23,6 +23,8 @@ public class User implements Serializable {
     private Date createtime;
 
     private String salt;
+
+    private String userstatus;
     /**
      * 角色集合
      */

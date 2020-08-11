@@ -80,6 +80,9 @@ public class CustomRealm extends AuthorizingRealm {
 
         User user =  userService.findAllUserInfoByUsername(username);
 
+        if(user == null || "".equals(user)){
+            return null;
+        }
         //取密码
         String pwd = user.getUserpassword();
         if(pwd == null || "".equals(pwd)){
