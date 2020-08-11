@@ -160,7 +160,7 @@ public class ShiroConfig {
         redisCacheManager.setRedisManager(getRedisManager());
 
         //设置过期时间，单位是秒，20s
-        redisCacheManager.setExpire(20);
+        redisCacheManager.setExpire(180);
 
         return redisCacheManager;
     }
