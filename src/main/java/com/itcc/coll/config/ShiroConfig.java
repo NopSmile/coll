@@ -67,12 +67,15 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/video/update","perms[video_update]");
 
         /**demo 开始*/
+        //filterChainDefinitionMap.put("/demo/**/query","perms[query_task]");
+
         filterChainDefinitionMap.put("/demo/fill/txt/**","perms[txt_fill]");
         filterChainDefinitionMap.put("/demo/single/choice/**","perms[choice_single]");
         filterChainDefinitionMap.put("/demo/down/choice/**","perms[choice_down]");
 
         filterChainDefinitionMap.put("/demo/multiple/choice/**","perms[choice_multiple]");
         filterChainDefinitionMap.put("/demo/big/txt/**","perms[txt_big]");
+
         /**demo 结束*/
 
 
