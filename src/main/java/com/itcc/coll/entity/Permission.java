@@ -15,4 +15,6 @@ public class Permission implements Serializable {
 
     private String url;
 
+    private String taskId;
+
 }
