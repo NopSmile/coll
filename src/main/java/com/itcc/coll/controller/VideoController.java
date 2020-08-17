@@ -17,4 +17,10 @@ public class VideoController {
 
     }
 
+    @RequestMapping("/delete")
+    public JsonData deleteVideo(){
+
+        return JsonData.buildSuccess("video删除成功");
+
+    }
 }
