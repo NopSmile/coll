@@ -2,6 +2,8 @@ package com.itcc.coll.controller;
 
 
 import com.itcc.coll.entity.JsonData;
+import com.itcc.coll.entity.User;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +18,9 @@ public class DemoController {
     }
     @RequestMapping("/fill/txt/query")
     public JsonData fillTxtQuery(){
+
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+
         return JsonData.buildSuccess("我是填空填空填空,我在查询填空任务");
     }
     @RequestMapping("/fill/txt/complete")

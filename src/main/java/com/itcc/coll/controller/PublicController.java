@@ -1,6 +1,7 @@
 package com.itcc.coll.controller;
 
 import com.itcc.coll.entity.JsonData;
+import com.itcc.coll.entity.User;
 import com.itcc.coll.entity.UserQuery;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
